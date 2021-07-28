@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.devronins.lyudmilatesttask.data.PopularClass" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="listener"
+            type="com.devronins.lyudmilatesttask.listener.AdapterListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:elevation="1dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivClass"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    tools:src="@drawable/ic_fitness_class"
+                    app:bgUsingName="@{item.title}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@{item.time}"
+                    android:drawablePadding="5dp"
+                    android:textColor="@color/color3B3B3B"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_watch"
+                    app:layout_constraintStart_toEndOf="@+id/ivClass"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="01 Aug, 30 Aug, 2021" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="@{item.location}"
+                    android:drawablePadding="5dp"
+                    android:textColor="@color/color3B3B3B"
+                    android:textSize="12sp"
+                    android:drawableStart="@drawable/ic_location"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                    tools:text="Chandigarh, India" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvGym"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/gym_seven"
+                    android:drawablePadding="5dp"
+                    android:textColor="@color/color3B3B3B"
+                    android:textSize="12sp"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="0dp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLocation"
+                    tools:text="Chandigarh, India" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.title}"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintTop_toTopOf="@+id/tvPrice"
+                    tools:text="Gym Rebel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="6dp"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:priceText="@{item.price}"
+                    tools:text="$25\nday" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivClassFavorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:onClick="@{(view) -> listener.onRecyclerItemClick(view, position)}"
+                    android:background="@{item.favorite ? @drawable/ic_favorite_selected : @drawable/ic_favorite}"
+                    android:tint="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/ivClass"
+                    android:elevation="1dp"
+                    app:layout_constraintTop_toTopOf="@+id/ivClass"
+                    tools:background="@drawable/ic_favorite" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

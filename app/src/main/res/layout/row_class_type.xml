@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.devronins.lyudmilatesttask.data.ClassType" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="listener"
+            type="com.devronins.lyudmilatesttask.listener.AdapterListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cvClassType"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="30dp"
+        app:cardMaxElevation="1dp"
+        app:cardElevation="1dp"
+        android:onClick="@{(view) -> listener.onRecyclerItemClick(view, position)}"
+        android:layout_marginStart="10dp"
+        app:cardBackgroundColor="@{item.selected ? @color/color3173C2 : @color/white}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:tint="@{item.selected ? @color/white : @color/color3173C2}"
+            android:layout_gravity="center"
+            app:srcUsingName="@{item.name}"
+            tools:src="@drawable/ic_dumbbell"/>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

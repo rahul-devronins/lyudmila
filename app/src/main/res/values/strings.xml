@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Lyudmila</string>
+    <string name="recommended_gyms">Recommended Gyms</string>
+    <string name="day">day</string>
+    <string name="popular_classes">Popular Classes</string>
+    <string name="aerobics">Aerobics</string>
+    <string name="box">Box</string>
+    <string name="dances">Dances</string>
+    <string name="dumbbell">Dumbbell</string>
+    <string name="gym">Gym</string>
+    <string name="run">Run</string>
+    <string name="swimming">Swimming</string>
+    <string name="watch">Watch</string>
+    <string name="wrestling">Wrestling</string>
+    <string name="yoga">Yoga</string>
+    <string name="children_selection">Children Selection</string>
+    <string name="gym_seven">Gym \"Seven\"</string>
+
+    <string-array name="types">
+        <item>@string/aerobics</item>
+        <item>@string/box</item>
+        <item>@string/children_selection</item>
+        <item>@string/dances</item>
+        <item>@string/dumbbell</item>
+        <item>@string/gym</item>
+        <item>@string/run</item>
+        <item>@string/swimming</item>
+        <item>@string/wrestling</item>
+        <item>@string/yoga</item>
+    </string-array>
+
+</resources>
